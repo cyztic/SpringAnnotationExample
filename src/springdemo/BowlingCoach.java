@@ -1,6 +1,7 @@
 package springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,8 +13,9 @@ public class BowlingCoach implements Coach {
 		
 	}
 	
-	//using method injection
+	//using method injection with qualifier to specify which class to inject
 	@Autowired
+	@Qualifier("happyFortuneService")
 	public void setFortuneService(FortuneService fService) {
 		fortuneService = fService;
 	}
