@@ -1,5 +1,8 @@
 package springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -28,4 +31,15 @@ public class TennisCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
+	//init method
+	@PostConstruct
+	public void doMyStartUpStuff() {
+		System.out.println("do my start up stuff");
+	}
+	
+	//destroy method
+	@PreDestroy
+	public void doMyCleanUpStuff() {
+		System.out.println("do my clean up stuff");
+	}
 }
